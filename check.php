@@ -1,14 +1,21 @@
 <?php
 
-       if (isDomainAvailible('https://dbknews.com/'))
+        if (isDomainAvailible('https://dbknews.com/') && isDomainAvailible('http://wp.dbknews.com/'))
        {
-               echo "Up and running!";
+               echo "Everything's up and running!";
        }
-       else
+       else if (isDomainAvailible('https://dbknews.com/') && !isDomainAvailible('http://wp.dbknews.com/'))
        {
-               echo "Woops, nothing found there.";
+               echo "Wordpress not working";
        }
-
+       else if (!isDomainAvailible('https://dbknews.com/') && isDomainAvailible('http://wp.dbknews.com/'))
+       {
+               echo "DBK not working";
+       }
+       else 
+       {
+                echo "Both URL's down";
+       }
        //returns true, if domain is availible, false if not
        function isDomainAvailible($domain)
        {
