@@ -2,19 +2,19 @@
 
         if (isDomainAvailible('https://dbknews.com/') && isDomainAvailible('http://wp.dbknews.com/'))
        {
-               echo "Everything's up and running!";
+               print  " <h1>Everything's up and running!</h1>" ;
        }
        else if (isDomainAvailible('https://dbknews.com/') && !isDomainAvailible('http://wp.dbknews.com/'))
        {
-               echo "Wordpress not working";
+               print "<h1> Wordpress not working </h1>";
        }
        else if (!isDomainAvailible('https://dbknews.com/') && isDomainAvailible('http://wp.dbknews.com/'))
        {
-               echo "DBK not working";
+               print "<h1> DBK not working </h1>";
        }
        else 
        {
-                echo "Both URL's down";
+                echo "<h1> Both URL's down </h1>";
        }
        //returns true, if domain is availible, false if not
        function isDomainAvailible($domain)
@@ -27,7 +27,7 @@
 
                //initialize curl
                $curlInit = curl_init($domain);
-               curl_setopt($curlInit,CURLOPT_CONNECTTIMEOUT,10);
+               curl_setopt($curlInit,CURLOPT_CONNECTTIMEOUT,10);    
                curl_setopt($curlInit,CURLOPT_HEADER,true);
                curl_setopt($curlInit,CURLOPT_NOBODY,true);
                curl_setopt($curlInit,CURLOPT_RETURNTRANSFER,true);
